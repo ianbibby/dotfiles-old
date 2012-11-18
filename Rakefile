@@ -5,7 +5,7 @@ task :install do
   replace_all = false
   Dir['*'].each do |file|
 
-    next if %w[Rakefile README.md LICENSE id_rsa.pub].include?(file)
+    next if %w[Rakefile README.md LICENSE id_rsa.pub gitconfig].include?(file)
 
     puts "Processing .#{file}..."
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
