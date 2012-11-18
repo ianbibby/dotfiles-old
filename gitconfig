@@ -1,3 +1,5 @@
 [user]
 	email = ianbibby@gmail
 	name = ianbibby
+[credential]
+	helper = osxkeychain
