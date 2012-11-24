@@ -5,7 +5,7 @@ task :install do
   replace_all = false
   Dir['*'].each do |file|
 
-    next if %w[Rakefile README.md LICENSE id_rsa.pub gitconfig].include?(file)
+    next if %w[Rakefile README.md LICENSE id_rsa.pub gitconfig oh-my-zsh].include?(file)
 
     puts "Processing .#{file}..."
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
@@ -35,6 +35,11 @@ task :install do
   system %Q{rm "$HOME/.ssh/id_rsa.pub"}
   system %Q{ln -s "$PWD/id_rsa.pub" "$HOME/.ssh/id_rsa.pub"}
 
+  # Handle oh-my-zsh on its own
+  puts "Linking OH-MY-ZSH"
+  system %Q{mkdir -p "$HOME/.oh-my-zsh/custom"}
+  system %Q{ln -is "$PWD/oh-my-zsh/oh-my-zsh.sh" "$HOME/.oh-my-zsh/oh-my-zsh.sh"}
+  system %Q{ln -is "$PWD/oh-my-zsh/custom/ianbibby.zsh-theme" "$HOME/.oh-my-zsh/custom/ianbibby.zsh-theme"}
 end
 
 def replace_file(file)
