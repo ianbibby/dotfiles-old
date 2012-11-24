@@ -24,6 +24,12 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" Hiding a buffer suppresses the unsaved changes warning
+set hidden 
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·
+
 " Switch syntax highlighting on
 syntax on
 
