@@ -30,6 +30,10 @@ set hidden
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
+" Display line numbers
+set number
+set numberwidth=3
+
 " Switch syntax highlighting on
 syntax on
 
