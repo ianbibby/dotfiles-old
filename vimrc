@@ -37,5 +37,11 @@ set numberwidth=3
 " Switch syntax highlighting on
 syntax on
 
+" If non-terminal, then make use of the solarized plugin
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+endif
+
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
