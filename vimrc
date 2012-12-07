@@ -1,47 +1,44 @@
-" A minimal vimrc for new vim users to start with.
-"
-" Referenced here: http://vimuniversity.com/samples/your-first-vimrc-should-be-nearly-empty
-"
-" Original Author:	 Bram Moolenaar <Bram@vim.org>
-" Made more minimal by:  Ben Orenstein
-" Currently hacked on by:  Ian Bibby
-" Last change:	         2012 Nov 10
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"
-"  If you don't understand a setting in here, just type ':h setting'.
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" .vimrc file for Ian Bibby
 call pathogen#infect()
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BASIC EDITING CONFIGURATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+set history=10000
+" Allow unsaved background buffers
+set hidden
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" Hiding a buffer suppresses the unsaved changes warning
-set hidden 
-
+set hlsearch
+" show incomplete commands
+set showcmd
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-
 " Display line numbers
 set number
 set numberwidth=3
-
 " Switch syntax highlighting on
 syntax on
-
 " If non-terminal, then make use of the solarized plugin
 if has('gui_running')
   set background=dark
   colorscheme solarized
 endif
-
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
+" Store temporary files in a central spot
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ARROW KEYS ARE UNACCEPTABLE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
