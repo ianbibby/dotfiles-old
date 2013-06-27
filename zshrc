@@ -3,13 +3,16 @@ export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
 
 # Colorize terminal
 #export TERM='xterm-color'
-alias ls='ls -G'
-alias ll='ls -lG'
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
 
+setopt NO_CASE_GLOB
+setopt EXTENDED_GLOB
+setopt NO_HUP
+setopt EXTENDED_HISTORY
+
 # Use VIM as the editor
-export EDITOR=vi
+export EDITOR=/usr/bin/vim
 
 # History
 export HISTSIZE=10000
@@ -21,6 +24,8 @@ alias ez="$EDITOR $HOME/.zshrc"
 alias sz="source $HOME/.zshrc"
 alias code="cd $HOME/code"
 alias tailf="tail -f"
+alias ls='ls -G'
+alias ll='ls -lG'
 
 # Use Postgres.app binaries if applicable
 if [[ -e /Applications/Postgres.app ]]; then
