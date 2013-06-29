@@ -1,3 +1,4 @@
+export PROMPT="%m %2c %# "
 # Add paths
 export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
 
