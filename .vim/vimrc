@@ -1,13 +1,20 @@
 " .vimrc file for Ian Bibby
-call pathogen#infect()
+"call pathogen#infect()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " This is set by default when a ~/.vimrc file is found, but I'll leave it
 set nocompatible
+" Smart defaults
 set history=10000
+set lines=35 columns=150
+set colorcolumn=90
+" Display line numbers
+set number
+set numberwidth=3
 " Allow unsaved background buffers
+set nowrap
 set hidden
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
@@ -15,20 +22,19 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set hlsearch
+set smartindent
+set autoindent
+set showmatch
+" Remove whitespace on save (experiment with this)
+autocmd BufWritePre * :%s/\s\+$//e
 " show incomplete commands
 set showcmd
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-" Display line numbers
-set number
-set numberwidth=3
 " Switch syntax highlighting on
 syntax on
-" If non-terminal, then make use of the solarized plugin
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-endif
+colorscheme Tomorrow-Night
+set guifont=Menlo\ Regular:h18
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
 " Store temporary files in a central spot
@@ -43,3 +49,8 @@ map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
+
+" Leader key
+let mapleader=" "
+map <leader>s :source ~/.vimrc<CR>
+nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
